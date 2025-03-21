@@ -35,7 +35,7 @@ export default function login() {
     <SafeAreaView style={styles.container}>
       <View style={styles.view}>
         <Image 
-          source={require('../../assets/img/logo.png')}
+          source={require('../../assets/img/logo.jpg')}
           style={styles.logo}
           alt='logo'
         />

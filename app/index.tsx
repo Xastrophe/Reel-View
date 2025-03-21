@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions, ActivityIndicator, FlatList } from 'react-native';
-import { PieChart, LineChart } from 'react-native-chart-kit';
-import { onAuthStateChanged, User } from 'firebase/auth';
-import { getAuth } from 'firebase/auth';
-import { useNavigation, router } from 'expo-router';
-import { io } from 'socket.io-client';
+import { Redirect } from 'expo-router';
+import React from 'react';
+import { View, Text, StyleSheet, Dimensions, ActivityIndicator, FlatList, SafeAreaView } from 'react-native';
 
 const login = false;
 
@@ -12,9 +8,8 @@ const login = false;
 const UserPage = () => {
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.header}>User Dashboard</Text>
-        </View>
+            <Redirect href="/auth/welcome" />
+
     );
 }
 

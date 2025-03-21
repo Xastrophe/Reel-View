@@ -3,6 +3,7 @@ import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { Stack } from 'expo-router';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
+import SplashScreen from 'react-native-splash-screen';
 
 const loadFonts = () => {
   return Font.loadAsync({
@@ -39,6 +40,7 @@ const RootLayout = () => {
         console.warn(e);
       } finally {
         setIsReady(true);
+        SplashScreen.hide(); // Hide the splash screen
       }
     };
 
@@ -53,7 +55,11 @@ const RootLayout = () => {
     );
   }
 
-  return <Stack />;
+  return <Stack> 
+    <Stack.Screen name="index" options={{ headerShown: false }} />
+    <Stack.Screen name="auth" options={{ headerShown: false }} />
+    <Stack.Screen name="users" options={{ headerShown: false }} />
+  </Stack>;
 };
 
 const styles = StyleSheet.create({
