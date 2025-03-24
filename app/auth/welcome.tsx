@@ -1,7 +1,7 @@
-import { Redirect } from 'expo-router';
+import { Link, Redirect } from 'expo-router';
 import React from 'react';
 import { Image, View, Text, StyleSheet, Dimensions, ActivityIndicator, FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
-
+import { AntDesign } from '@expo/vector-icons';
 const login = false;
 
 
@@ -21,14 +21,28 @@ const UserPage = () => {
                     <TouchableOpacity style={styles.signup}>
                         <Text style={styles.signupText}> Sign Up </Text>
                     </TouchableOpacity>
+
+                    <View style={styles.divider}>
+                        <View style={styles.underscoreOr}></View>
+                            <Text style={styles.mid}> or </Text>
+                        <View style={styles.underscoreOr}></View>
+                    </View>
                     
-                    <Text style={styles.mid}> or </Text>
 
                     <TouchableOpacity style={styles.login}>
-                    <Text style={styles.loginText}> Create a new account </Text>
+                    <AntDesign name="google" size={20} style={styles.googlelogo}/>
+                        <Text style={styles.loginText}> Log In with Google </Text>
                     </TouchableOpacity>
 
+                    
+
                 </View>
+                <View style={styles.acclog}>
+                        <Text style={styles.accountCreation}> Already have an account? </Text>
+                        <Link href="/auth/login" style={styles.accountCreation}>
+                            <Text> Log In </Text>
+                        </Link>
+                    </View>
             </SafeAreaView>
 
 
@@ -36,17 +50,44 @@ const UserPage = () => {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20, backgroundColor: '#ffffff' },
-    header: { fontSize: 24, fontWeight: 'bold', marginBottom: 10 },
-    card: { backgroundColor: '#ffffff', padding: 15, borderRadius: 10, marginVertical: 5, width: '100%', alignItems: 'center' },
-    sensorName: { fontSize: 18, fontWeight: 'bold' },
-    text: { fontSize: 16, marginVertical: 2 },
-    activity: { marginTop: 20 },
+    container: { 
+        flex: 1, 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        padding: 20, 
+        backgroundColor: '#ffffff' 
+    },
+    header: { 
+        fontSize: 24, 
+        fontWeight: 'bold', 
+        marginBottom: 10 
+    },
+    card: { 
+        backgroundColor: '#ffffff', 
+        padding: 15, 
+        borderRadius: 10, 
+        marginVertical: 5, 
+        width: '100%', 
+        alignItems: 'center' },
+    sensorName: { 
+        fontSize: 18, 
+        fontWeight: 'bold' 
+    },
+    text: { 
+        fontSize: 16, 
+        marginVertical: 2 
+    },
+    activity: { 
+        marginTop: 20 
+    },
+    logoTop: {
+
+    },
     buttonContainer: {
         marginTop: 20
     },
     signup: {
-        marginTop: 20,
+        marginTop: 30,
         backgroundColor: "#000000",
         paddingVertical: 10,
         paddingHorizontal: 100,
@@ -55,15 +96,17 @@ const styles = StyleSheet.create({
 
     },
     mid: {
-        marginTop: 20,
-        alignSelf: "center",
+        marginHorizontal: 20,
+        fontSize: 16,
+        color: "#555"
     },
     login: {
-        marginTop: 20,
+        flexDirection: "row",
+        marginTop: 30,
         backgroundColor: "#ffffff",
         paddingVertical: 10,
-        paddingHorizontal: 100,
-        borderColor: "#000000",
+        paddingHorizontal: 90,
+        borderColor: "#ccc",
         borderWidth: 1,
         borderRadius: 20,
         
@@ -73,6 +116,7 @@ const styles = StyleSheet.create({
         alignSelf: "center"
     },
     loginText: {
+        fontFamily: "Jakarta",
         color: "#000000",
         alignSelf: "center"
     },
@@ -81,6 +125,29 @@ const styles = StyleSheet.create({
         height: 300,
         alignSelf: 'center',
     },
+    googlelogo: {
+        marginHorizontal: 10,
+    },
+    divider: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: 30,
+    },
+    underscoreOr: {
+        flex: 1,
+        height: 1,
+        backgroundColor: '#ccc',
+    },
+    accountCreation: {
+        marginTop: 20,
+        color: "#000000",
+        alignSelf: "center"
+    },
+    acclog: {
+        marginTop: 20,
+        flexDirection: "row",
+        alignItems: "center"
+    }
 });
 
 export default UserPage;

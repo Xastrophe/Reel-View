@@ -14,6 +14,7 @@
     "axios": "^1.7.9",
     "expo": "~52.0.27",
     "expo-constants": "~17.0.4",
+    "expo-font": "^13.0.4",
     "expo-linking": "~7.0.4",
     "expo-router": "~4.0.17",
     "expo-status-bar": "~2.0.1",
@@ -26,7 +27,8 @@
     "react-native-splash-screen": "^3.3.0",
     "react-native-svg": "^15.11.1",
     "react-native-web": "^0.19.13",
-    "socket.io-client": "^4.8.1"
+    "socket.io-client": "^4.8.1",
+    "@expo/vector-icons": "^14.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

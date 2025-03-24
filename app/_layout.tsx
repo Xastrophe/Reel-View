@@ -8,6 +8,7 @@ import SplashScreen from 'react-native-splash-screen';
 const loadFonts = () => {
   return Font.loadAsync({
     'Open-Sans': require('../assets/fonts/OpenSans-VariableFont_wdth,wght.ttf'),
+    'Jakarta': require('../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf'),
   });
 };
 
