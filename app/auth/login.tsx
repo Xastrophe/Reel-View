@@ -2,6 +2,7 @@ import { Link, useNavigation, useRouter } from 'expo-router';
 import React, { useEffect } from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image, Alert } from 'react-native';
 import { getAuth } from 'firebase/auth';
+import { AntDesign } from '@expo/vector-icons';
 
 const auth = getAuth();
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -40,15 +41,15 @@ export default function login() {
           alt='logo'
         />
 
-        <Text style={styles.title}> ReelView</Text>
-        <Text style={styles.subtitle}> Log-In To Your Account</Text>
+        <Text style={styles.title}> Welcome!</Text>
+        <Text style={styles.subtitle}></Text>
         <View style={styles.form}>
           <View style={styles.inputContainer}>
-            <Text style={styles.label}> Email Address </Text>
+            <Text style={styles.label}> Email </Text>
             <TextInput
               style={styles.input}
               value={form.email}
-              placeholder='johndoe@gmail.com'
+              placeholder='kevin@reeltimetech.com'
               onChangeText={(text) => setForm({ ...form, email: text })}
               autoComplete='email'
               textContentType='emailAddress'
@@ -57,13 +58,24 @@ export default function login() {
             <TextInput 
               style={styles.input}  
               value={form.password}
-              placeholder='password'
+              placeholder='Enter password'
               secureTextEntry={true}
               onChangeText={(text) => setForm({ ...form, password: text })}
             />
             <TouchableOpacity style={styles.button} onPress={handleLogin}>
               <Text style={styles.buttonLabel}> Sign In </Text>
             </TouchableOpacity>
+            <View style={styles.divider}>
+                <View style={styles.underscoreOr}></View>
+                    <Text style={styles.mid}> or </Text>
+                <View style={styles.underscoreOr}></View>
+            </View>
+
+            <TouchableOpacity style={styles.login}>
+                    <AntDesign name="google" size={25} style={styles.googlelogo}/>
+                        <Text style={styles.loginText}> Log In with Google </Text>
+            </TouchableOpacity>
+
           </View>
         </View>
       </View>
@@ -77,26 +89,26 @@ export default function login() {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#e8ecf4',
+      backgroundColor: '#fff',
     },
     view: {
       padding:24,
       flex: 1,
     },
     logo: {
-      marginTop: 80,
-      width: 150,
-      height: 150,
+      marginTop: 40,
+      width: 110,
+      height: 110,
       alignSelf: 'center',
     },
     title: {
-      letterSpacing: 0.5,
+      letterSpacing: 0.3,
       fontSize: 24,
       fontWeight: 800,
-      textAlign: 'center',
       marginTop: 10,
       marginBottom: 5,
-      color: '#1e1e1e'
+      color: '#1e1e1e',
+      fontFamily: 'Jakarta'
     },
     subtitle: {
       fontSize: 15,
@@ -106,7 +118,7 @@ const styles = StyleSheet.create({
     },
     label: {
       fontWeight: '800',
-      fontFamily: 'Open-Sans',
+      fontFamily: 'Jakarta',
       fontSize: 17,
       color: '#696969',
       marginTop: 10,
@@ -114,8 +126,9 @@ const styles = StyleSheet.create({
     input: {
       backgroundColor: '#f2f2f2',
       padding: 15,
-      borderRadius: 25,
+      borderRadius: 50,
       marginTop: 5,
+      fontFamily: 'Jakarta',
     },
     form: {
       marginTop: 30,
@@ -127,10 +140,11 @@ const styles = StyleSheet.create({
       backgroundColor: '#1e1e1e',
       color: '#fff',
       padding: 15,
-      borderRadius: 25,
+      borderRadius: 100,
       marginTop: 30,
       textAlign: 'center',
       fontWeight: '500',
+      fontFamily: 'Jakarta',
     },
     buttonLabel: {
       color: '#fff',
@@ -139,9 +153,10 @@ const styles = StyleSheet.create({
       fontSize: 20,
     },
     footer: {
-      bottom: 30,
+      bottom: 100,
       position: 'absolute',
       alignSelf: 'center',
+      fontFamily: 'Jakarta',
     },
   
     footertitle: {
@@ -153,7 +168,48 @@ const styles = StyleSheet.create({
     },
     signupLabel: {
       color: '#1e1e1e',
-      textDecorationLine: 'underline',
-    }
-  
+      
+    },
+    underscoreOr: {
+      flex: 1,
+      height: 1,
+      backgroundColor: '#ccc',
+    },
+    accountCreation: {
+      marginTop: 20,
+      color: '#000',
+      alignSelf: 'center'
+    },
+    mid: {
+      marginHorizontal: 20,
+      fontSize: 16,
+      color: "#555"
+    },
+    divider: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginTop: 30,
+    },
+    login: {
+      flexDirection: 'row',
+      marginTop: 30,
+      backgroundColor: '#fff',
+      paddingVertical: 15,
+      paddingHorizontal: 90,
+      borderColor: '#ccc',
+      borderWidth: 1,
+      borderRadius: 50,
+      
+    },
+    loginText: {
+      fontFamily: 'Jakarta',
+      color: '#000',
+      alignSelf: 'center',
+      fontSize: 16,
+      fontWeight: '400',
+    },
+    googlelogo: {
+      marginHorizontal: 10,
+      color: '#4285F4'
+    },
   });

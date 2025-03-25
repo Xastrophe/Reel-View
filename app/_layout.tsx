@@ -41,7 +41,7 @@ const RootLayout = () => {
         console.warn(e);
       } finally {
         setIsReady(true);
-        SplashScreen.hide(); // Hide the splash screen
+        //SplashScreen.hide(); // Hide the splash screen
       }
     };
 

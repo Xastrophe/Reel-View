@@ -1,6 +1,6 @@
-import { Link, Redirect } from 'expo-router';
+import { Link } from 'expo-router';
 import React from 'react';
-import { Image, View, Text, StyleSheet, Dimensions, ActivityIndicator, FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
+import { Image, View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 const login = false;
 
@@ -89,16 +89,11 @@ const styles = StyleSheet.create({
     signup: {
         marginTop: 30,
         backgroundColor: "#000000",
-        paddingVertical: 10,
+        paddingVertical: 15,
         paddingHorizontal: 100,
         borderRadius: 20,
         shadowColor: "#000000",
 
-    },
-    mid: {
-        marginHorizontal: 20,
-        fontSize: 16,
-        color: "#555"
     },
     login: {
         flexDirection: "row",
@@ -111,23 +106,25 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         
     },
-    signupText: {
-        color: "#ffffff",
-        alignSelf: "center"
-    },
     loginText: {
         fontFamily: "Jakarta",
         color: "#000000",
         alignSelf: "center"
     },
+    googlelogo: {
+        marginHorizontal: 10,
+    },
+    signupText: {
+        color: "#ffffff",
+        alignSelf: "center"
+    },
+    
     logo: {
         width: 300,
         height: 300,
         alignSelf: 'center',
     },
-    googlelogo: {
-        marginHorizontal: 10,
-    },
+    
     divider: {
         flexDirection: "row",
         alignItems: "center",
@@ -142,6 +139,11 @@ const styles = StyleSheet.create({
         marginTop: 20,
         color: "#000000",
         alignSelf: "center"
+    },
+    mid: {
+        marginHorizontal: 20,
+        fontSize: 16,
+        color: "#555"
     },
     acclog: {
         marginTop: 20,
