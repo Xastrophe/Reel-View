@@ -44,24 +44,31 @@ export default function login() {
         <Text style={styles.title}> Welcome!</Text>
         <Text style={styles.subtitle}></Text>
         <View style={styles.form}>
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}> Email </Text>
-            <TextInput
-              style={styles.input}
-              value={form.email}
-              placeholder='kevin@reeltimetech.com'
-              onChangeText={(text) => setForm({ ...form, email: text })}
-              autoComplete='email'
-              textContentType='emailAddress'
-            />
+          <Text style={styles.label}> Email </Text>
+              
+              <View style={styles.inputContainer}>
+                <AntDesign name='mail' size={25} style={styles.googlelogo}/>
+                  <TextInput
+                      style={styles.input}
+                      value={form.email}
+                      placeholder='kevin@reeltimetech.com'
+                      onChangeText={(text) => setForm({ ...form, email: text })}
+                      autoComplete='email'
+                      textContentType='emailAddress'
+                    />
+              </View>
+                      
             <Text style={styles.label}> Password </Text>
-            <TextInput 
-              style={styles.input}  
-              value={form.password}
-              placeholder='Enter password'
-              secureTextEntry={true}
-              onChangeText={(text) => setForm({ ...form, password: text })}
-            />
+              <View style={styles.inputContainer}>
+                  <AntDesign name="eye" size={25} style={styles.googlelogo}/>
+                    <TextInput 
+                      style={styles.input}  
+                      value={form.password}
+                      placeholder='Enter password'
+                      secureTextEntry={true}
+                      onChangeText={(text) => setForm({ ...form, password: text })}
+                    />
+              </View>
             <TouchableOpacity style={styles.button} onPress={handleLogin}>
               <Text style={styles.buttonLabel}> Sign In </Text>
             </TouchableOpacity>
@@ -77,7 +84,6 @@ export default function login() {
             </TouchableOpacity>
 
           </View>
-        </View>
       </View>
       <View style={styles.footer}>
                 <Text style={styles.footertitle}> Don't have an account? <Link style={styles.signupLabel} href='/auth/sign-in'> Sign Up </Link></Text>
@@ -124,17 +130,19 @@ const styles = StyleSheet.create({
       marginTop: 10,
     },
     input: {
-      backgroundColor: '#f2f2f2',
-      padding: 15,
-      borderRadius: 50,
-      marginTop: 5,
       fontFamily: 'Jakarta',
+      borderRadius: 50,
     },
     form: {
       marginTop: 30,
     },
     inputContainer: {
-      marginTop: 20,
+      marginTop: 10,
+      flex: 1,
+      flexDirection: 'row',
+      backgroundColor: '#f2f2f2',
+      padding: 10,
+      borderRadius: 50,
     },
     button: {
       backgroundColor: '#1e1e1e',
@@ -210,6 +218,6 @@ const styles = StyleSheet.create({
     },
     googlelogo: {
       marginHorizontal: 10,
-      color: '#4285F4'
+      color: '#000'
     },
   });

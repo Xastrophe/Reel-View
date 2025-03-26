@@ -1,8 +1,10 @@
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import React from 'react';
 import { Image, View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+
 const login = false;
+const router = useRouter();
 
 
 const UserPage = () => {
@@ -18,7 +20,7 @@ const UserPage = () => {
 
                 </View>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.signup}>
+                    <TouchableOpacity style={styles.signup} onPress={()=>{router.push('auth/sign-in')}}>
                         <Text style={styles.signupText}> Sign Up </Text>
                     </TouchableOpacity>
 
