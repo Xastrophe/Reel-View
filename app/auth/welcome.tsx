@@ -3,51 +3,44 @@ import React from 'react';
 import { Image, View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-const login = false;
-const router = useRouter();
-
-
 const UserPage = () => {
+    const router = useRouter();
 
     return (
-            <SafeAreaView style={styles.container}>
-                <View style={styles.logoTop}>
-                    <Image 
-                        source={require('../../assets/img/logo.jpg')}
-                        style={styles.logo}
-                        alt='logo'
-                    />
+        <SafeAreaView style={styles.container}>
+            <View style={styles.logoTop}>
+                <Image 
+                    source={require('../../assets/img/logo.jpg')}
+                    style={styles.logo}
+                    alt='logo'
+                />
+            </View>
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity 
+                    style={styles.signup} 
+                    onPress={() => router.push('/auth/sign-up')}
+                >
+                    <Text style={styles.signupText}>Sign Up</Text>
+                </TouchableOpacity>
 
+                <View style={styles.divider}>
+                    <View style={styles.underscoreOr}></View>
+                    <Text style={styles.mid}>or</Text>
+                    <View style={styles.underscoreOr}></View>
                 </View>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.signup} onPress={()=>{router.push('auth/sign-in')}}>
-                        <Text style={styles.signupText}> Sign Up </Text>
-                    </TouchableOpacity>
 
-                    <View style={styles.divider}>
-                        <View style={styles.underscoreOr}></View>
-                            <Text style={styles.mid}> or </Text>
-                        <View style={styles.underscoreOr}></View>
-                    </View>
-                    
-
-                    <TouchableOpacity style={styles.login}>
+                <TouchableOpacity style={styles.login}>
                     <AntDesign name="google" size={20} style={styles.googlelogo}/>
-                        <Text style={styles.loginText}> Log In with Google </Text>
-                    </TouchableOpacity>
-
-                    
-
-                </View>
-                <View style={styles.acclog}>
-                        <Text style={styles.accountCreation}> Already have an account? </Text>
-                        <Link href="/auth/login" style={styles.accountCreation}>
-                            <Text> Log In </Text>
-                        </Link>
-                    </View>
-            </SafeAreaView>
-
-
+                    <Text style={styles.loginText}>Log In with Google</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.acclog}>
+                <Text style={styles.accountCreation}>Already have an account?</Text>
+                <Link href="/auth/sign-in" style={styles.footerText}>
+                    <Text> Log In</Text>
+                </Link>
+            </View>
+        </SafeAreaView>
     );
 }
 
@@ -91,9 +84,9 @@ const styles = StyleSheet.create({
     signup: {
         marginTop: 30,
         backgroundColor: "#000000",
-        paddingVertical: 15,
+        paddingVertical: 18,
         paddingHorizontal: 100,
-        borderRadius: 20,
+        borderRadius: 50,
         shadowColor: "#000000",
 
     },
@@ -101,24 +94,27 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         marginTop: 30,
         backgroundColor: "#ffffff",
-        paddingVertical: 10,
+        paddingVertical: 18,
         paddingHorizontal: 90,
         borderColor: "#ccc",
         borderWidth: 1,
-        borderRadius: 20,
+        borderRadius: 50,
         
     },
     loginText: {
-        fontFamily: "Jakarta",
-        color: "#000000",
-        alignSelf: "center"
+        color: '#000',
+        fontSize: 16,
+        fontWeight: '600',
+        alignSelf: 'center',
     },
     googlelogo: {
         marginHorizontal: 10,
     },
     signupText: {
-        color: "#ffffff",
-        alignSelf: "center"
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: '600',
+        alignSelf: 'center',
     },
     
     logo: {
@@ -140,7 +136,15 @@ const styles = StyleSheet.create({
     accountCreation: {
         marginTop: 20,
         color: "#000000",
-        alignSelf: "center"
+        alignSelf: "center",
+        fontSize: 16,
+    },
+    footerText: {
+        marginTop: 20,
+        color: "#000000",
+        alignSelf: "center",
+        fontSize: 16,
+        fontWeight: '600',
     },
     mid: {
         marginHorizontal: 20,

@@ -1,5 +1,5 @@
-import { Link, useNavigation, useRouter } from 'expo-router';
-import React, { useEffect, useState } from 'react';
+import { Link, Stack } from 'expo-router';
+import React, { useState } from 'react';
 import { 
   SafeAreaView, 
   StyleSheet, 
@@ -14,55 +14,33 @@ import { AntDesign } from '@expo/vector-icons';
 interface FormState {
   email: string;
   password: string;
-  name: string;
 }
 
 export default function SignUp() {
-  const [form, setForm] = React.useState<FormState>({
-    name: '',
+  const [form, setForm] = useState<FormState>({
     email: '',
-    password: '',
-    
+    password: ''
   });
   
-  const navigation = useNavigation();
-  const router = useRouter();
-
-  useEffect(() => {
-    navigation.setOptions({ headerShown: false });
-  }, [navigation]);
+  const [showPassword, setShowPassword] = useState(true);
 
   const handleSignUp = () => {
     // Handle sign up logic here
     console.log('Sign up pressed');
   };
 
-  const [showPassword, setShowPassword] = useState(true);
-
   return (
     <SafeAreaView style={styles.container}>
+      <Stack.Screen options={{ headerShown: false }} />
       <View style={styles.view}>
         <Image
           source={require('../../assets/img/logo.jpg')}
           style={styles.logo}
         />
 
-        <Text style={styles.title}>Create an account</Text>
+        <Text style={styles.title}>Welcome 👋</Text>
 
         <View style={styles.form}>
-        <Text style={styles.label}>Name</Text>
-          <View style={styles.inputContainer}>
-            <AntDesign name="user" size={24} style={styles.icon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Kevin"
-              value={form.name}
-              onChangeText={(text: string) => setForm({ ...form, name: text })}
-              autoCapitalize="none"
-              
-            />
-          </View>
-
           <Text style={styles.label}>Email</Text>
           <View style={styles.inputContainer}>
             <AntDesign name="mail" size={24} style={styles.icon} />
@@ -113,9 +91,9 @@ export default function SignUp() {
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>
-          Don't have an account?{' '}
-          <Link href="/auth/sign-up" style={styles.loginLink}>
-            Sign up
+          Already have an account?{' '}
+          <Link href="/auth/sign-in" style={styles.loginLink}>
+            Log in
           </Link>
         </Text>
       </View>
@@ -136,6 +114,8 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     alignSelf: 'center',
+    marginTop: 60,
+    marginBottom: 20,
   },
   title: {
     fontSize: 32,
@@ -144,7 +124,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   form: {
-    gap: 13,
+    gap: 16,
   },
   label: {
     fontSize: 16,
@@ -178,7 +158,7 @@ const styles = StyleSheet.create({
     height: 56,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 18,
+    marginTop: 24,
   },
   signUpButtonText: {
     color: '#fff',
