@@ -3,7 +3,7 @@ import React from 'react';
 import { Image, View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-const UserPage = () => {
+export default function Welcome() {
     const router = useRouter();
 
     return (
@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
         borderRadius: 10, 
         marginVertical: 5, 
         width: '100%', 
-        alignItems: 'center' },
+        alignItems: 'center' 
+    },
     sensorName: { 
         fontSize: 18, 
         fontWeight: 'bold' 
@@ -76,57 +77,52 @@ const styles = StyleSheet.create({
         marginTop: 20 
     },
     logoTop: {
-
+        flex: 1,
+        justifyContent: 'center'
     },
     buttonContainer: {
-        marginTop: 20
+        width: '100%',
+        paddingHorizontal: 20,
+        marginBottom: 40
     },
     signup: {
-        marginTop: 30,
         backgroundColor: "#000000",
         paddingVertical: 18,
-        paddingHorizontal: 100,
         borderRadius: 50,
         shadowColor: "#000000",
-
     },
     login: {
         flexDirection: "row",
-        marginTop: 30,
+        justifyContent: "center",
         backgroundColor: "#ffffff",
         paddingVertical: 18,
-        paddingHorizontal: 90,
         borderColor: "#ccc",
         borderWidth: 1,
         borderRadius: 50,
-        
     },
     loginText: {
         color: '#000',
         fontSize: 16,
         fontWeight: '600',
-        alignSelf: 'center',
     },
     googlelogo: {
-        marginHorizontal: 10,
+        marginRight: 10,
     },
     signupText: {
         color: '#fff',
         fontSize: 16,
         fontWeight: '600',
-        alignSelf: 'center',
+        textAlign: 'center',
     },
-    
     logo: {
-        width: 300,
-        height: 300,
-        alignSelf: 'center',
+        width: 200,
+        height: 200,
+        resizeMode: 'contain'
     },
-    
     divider: {
         flexDirection: "row",
         alignItems: "center",
-        marginTop: 30,
+        marginVertical: 30,
     },
     underscoreOr: {
         flex: 1,
@@ -134,15 +130,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#ccc',
     },
     accountCreation: {
-        marginTop: 20,
         color: "#000000",
-        alignSelf: "center",
         fontSize: 16,
     },
     footerText: {
-        marginTop: 20,
         color: "#000000",
-        alignSelf: "center",
         fontSize: 16,
         fontWeight: '600',
     },
@@ -152,10 +144,8 @@ const styles = StyleSheet.create({
         color: "#555"
     },
     acclog: {
-        marginTop: 20,
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        marginBottom: 20
     }
 });
-
-export default UserPage;

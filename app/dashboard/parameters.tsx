@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { AntDesign, MaterialCommunityIcons, Fontisto } from '@expo/vector-icons';
-import { usePonds } from '../lib/context/PondContext';
+import { usePonds } from '../../src/lib/context/PondContext';
 
 export default function Parameters() {
     const router = useRouter();

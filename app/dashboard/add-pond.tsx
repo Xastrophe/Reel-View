@@ -7,13 +7,12 @@ import {
     SafeAreaView, 
     TouchableOpacity,
     ScrollView,
-    Image,
     TextInput,
     Alert
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { AntDesign } from '@expo/vector-icons';
-import { usePonds } from '../context/PondContext';
+import { usePonds } from '../../src/lib/context/PondContext';
 
 export default function AddPond() {
     const router = useRouter();
@@ -61,7 +60,7 @@ export default function AddPond() {
         });
 
         // Navigate back to pond list
-        router.back();
+        router.push('/dashboard/pond-list');
     };
 
     return (
@@ -167,6 +166,7 @@ const styles = StyleSheet.create({
     },
     backButton: {
         marginRight: 16,
+        padding: 4,
     },
     headerTitle: {
         fontSize: 24,

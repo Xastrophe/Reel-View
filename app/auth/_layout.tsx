@@ -1,16 +1,32 @@
-import React from 'react';
 import { Stack } from 'expo-router';
+import React from 'react';
 
-
-const RootLayout = () => {
-  
-  return (<Stack> 
-    <Stack.Screen name="sign-up" options={{ headerShown: false }} />
-    <Stack.Screen name="sign-in" options={{ headerShown: false }} />
-    <Stack.Screen name="welcome" options={{ headerShown: false }} />
-  </Stack>);
-};
-
-
-
-export default RootLayout;
+export default function AuthLayout() {
+    return (
+        <Stack
+            screenOptions={{
+                headerShown: false,
+                contentStyle: { backgroundColor: '#1A1A1A' }
+            }}
+        >
+            <Stack.Screen 
+                name="welcome"
+                options={{
+                    headerShown: false
+                }}
+            />
+            <Stack.Screen 
+                name="sign-in"
+                options={{
+                    headerShown: false
+                }}
+            />
+            <Stack.Screen 
+                name="sign-up"
+                options={{
+                    headerShown: false
+                }}
+            />
+        </Stack>
+    );
+}

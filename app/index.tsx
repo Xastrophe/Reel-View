@@ -8,7 +8,7 @@ const login = false;
 const UserPage = () => {
 
     return (
-            <Redirect href="/dashboard/home" />
+            <Redirect href="auth/welcome" />
 
     );
 }
