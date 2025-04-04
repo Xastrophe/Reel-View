@@ -4,6 +4,7 @@ import { Stack } from 'expo-router';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import SplashScreen from 'react-native-splash-screen';
+import { PondProvider } from './lib/context/PondContext';
 
 const loadFonts = () => {
   return Font.loadAsync({
@@ -56,10 +57,15 @@ const RootLayout = () => {
     );
   }
 
-  return <Stack> 
-    <Stack.Screen name="index" options={{ headerShown: false }} />
-    <Stack.Screen name="auth" options={{ headerShown: false }} />
-  </Stack>;
+  return (
+    <PondProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="auth" options={{ headerShown: false }} />
+        <Stack.Screen name="dashboard" options={{ headerShown: false }} />
+      </Stack>
+    </PondProvider>
+  );
 };
 
 const styles = StyleSheet.create({
